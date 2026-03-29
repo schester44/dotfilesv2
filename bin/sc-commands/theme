@@ -9,21 +9,14 @@ show_swatch() {
   local json_file="$1"
   local name desc accent
 
-  name=$(python3 -c "import json; print(json.load(open('$json_file'))['name'])")
-  desc=$(python3 -c "import json; print(json.load(open('$json_file'))['description'])")
-  accent=$(python3 -c "import json; print(json.load(open('$json_file'))['palette']['purple']['base'])")
+  name=$(jq -r '.name' "$json_file")
+  desc=$(jq -r '.description' "$json_file")
+  accent=$(jq -r '.palette.purple.base' "$json_file")
 
   local blocks=()
-  while IFS=' ' read -r hex; do
+  while IFS= read -r hex; do
     blocks+=("$(gum style --background "$hex" --padding '0 2' '  ')")
-  done < <(python3 -c "
-import json
-with open('$json_file') as f:
-    p = json.load(f)['palette']
-for c in ['bg', 'red', 'pink', 'purple', 'blue', 'green', 'yellow', 'orange']:
-    obj = p[c]
-    print(obj['base'] if isinstance(obj, dict) else obj)
-")
+  done < <(jq -r '.palette | [.bg.base, .red.base, .pink.base, .purple.base, .blue.base, .green.base, .yellow.base, .orange.base] | .[]' "$json_file")
 
   local swatch
   swatch=$(gum join "${blocks[@]}")
@@ -33,7 +26,6 @@ for c in ['bg', 'red', 'pink', 'purple', 'blue', 'green', 'yellow', 'orange']:
   gum style --padding "0 2" --faint --italic "$desc"
   echo ""
   gum style --padding "0 2" "$swatch"
-  echo ""
 }
 
 # No args: list available palettes
