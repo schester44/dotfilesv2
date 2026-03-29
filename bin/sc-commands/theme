@@ -53,5 +53,9 @@ fi
 # Update symlink
 ln -sf "colors/$palette.json" "$THEME_LINK"
 
+# Regenerate themed configs
+SCRIPTS_DIR="$(dirname "$(realpath "$0")")/../../system/scripts"
+"$SCRIPTS_DIR/generate-themes.sh"
+
 show_swatch "$palette_file"
 gum style --padding "0 4" --faint "restart nvim to apply"

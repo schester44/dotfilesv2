@@ -63,13 +63,23 @@ The installer will:
 
 ## Custom commands
 
-All commands are accessed through the `sc` dispatcher:
+All commands are accessed through the `sc` dispatcher. See [docs/sc.md](docs/sc.md).
 
 ```bash
-sc pkg install    # fzf TUI for picking packages to install
-sc pkg add <pkg>  # Install packages if missing
-sc pkg missing    # Check if packages are installed
-sc show done      # Done spinner
+sc theme grapelean  # Switch color palette, regenerate all themed configs
+sc pkg install      # fzf TUI for picking packages to install
+sc pkg add <pkg>    # Install packages if missing
+sc pkg missing      # Check if packages are installed
+sc show done        # Done spinner
+```
+
+## Theming
+
+A template-based system that generates app configs (Walker, Waybar, etc.) from a single color palette. See [docs/theming.md](docs/theming.md).
+
+```bash
+sc theme              # list palettes with swatches
+sc theme cobalt44     # switch — all configs regenerate
 ```
 
 ## Git worktree management

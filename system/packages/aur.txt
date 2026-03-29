@@ -1,6 +1,10 @@
 walker
 elephant
 elephant-desktopapplications
+elephant-clipboard
+elephant-calc
+elephant-symbols
+elephant-windows
 postman-bin
 neovim-remote
 

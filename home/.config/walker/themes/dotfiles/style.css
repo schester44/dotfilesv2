@@ -1,0 +1,200 @@
+/* Walker theme: grapelean
+ * Generated from ~/.dotfiles/system/theme.json */
+
+@define-color window_bg_color #202024;
+@define-color window_bg_light #2e2e32;
+@define-color window_bg_lighter #424246;
+@define-color accent_bg_color #967EFB;
+@define-color accent_bg_dark #6a5acd;
+@define-color theme_fg_color #FFFFFF;
+@define-color theme_fg_muted #9E9E9E;
+@define-color green #6fbfa0;
+@define-color pink #FF628C;
+@define-color error_bg_color #FF6B6B;
+@define-color error_fg_color #FFFFFF;
+@define-color border_color #424246;
+
+* {
+  all: unset;
+  font-family: sans-serif;
+}
+
+popover {
+  background: @window_bg_light;
+  border: 1px solid @border_color;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.box-wrapper {
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3);
+  background: @window_bg_color;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid @border_color;
+}
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: @theme_fg_muted;
+}
+
+.search-container {
+  border-radius: 10px;
+}
+
+.input placeholder {
+  opacity: 0.4;
+}
+
+.input selection {
+  background: alpha(@accent_bg_color, 0.35);
+}
+
+.input {
+  caret-color: @green;
+  background: @window_bg_light;
+  padding: 12px;
+  color: @theme_fg_color;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.input:focus,
+.input:active {
+  border: 1px solid alpha(@accent_bg_color, 0.4);
+}
+
+.list {
+  color: @theme_fg_color;
+}
+
+.item-box {
+  border-radius: 10px;
+  padding: 10px;
+  transition: background 150ms ease;
+}
+
+.item-quick-activation {
+  background: alpha(@accent_bg_color, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  color: @accent_bg_color;
+}
+
+child:selected .item-box,
+row:selected .item-box {
+  background: alpha(@accent_bg_color, 0.2);
+}
+
+child:selected .item-text,
+row:selected .item-text {
+  color: @theme_fg_color;
+}
+
+.item-subtext {
+  font-size: 12px;
+  opacity: 0.45;
+}
+
+.providerlist .item-subtext {
+  font-size: unset;
+  opacity: 0.7;
+}
+
+.item-image-text {
+  font-size: 28px;
+}
+
+.preview {
+  border: 1px solid alpha(@border_color, 0.5);
+  border-radius: 10px;
+  color: @theme_fg_color;
+}
+
+.calc .item-text {
+  font-size: 24px;
+  color: @green;
+}
+
+.symbols .item-image {
+  font-size: 24px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.25;
+}
+
+.todo.urgent {
+  font-size: 24px;
+  color: @pink;
+}
+
+.todo.active {
+  font-weight: bold;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.5;
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.keybinds {
+  padding-top: 10px;
+  border-top: 1px solid @window_bg_light;
+  font-size: 12px;
+  color: @theme_fg_muted;
+}
+
+.keybind-button {
+  opacity: 0.4;
+}
+
+.keybind-button:hover {
+  opacity: 0.7;
+}
+
+.keybind-bind {
+  text-transform: lowercase;
+  opacity: 0.3;
+}
+
+.keybind-label {
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid alpha(@theme_fg_color, 0.2);
+}
+
+.error {
+  padding: 10px;
+  border-radius: 8px;
+  background: @error_bg_color;
+  color: @error_fg_color;
+}
+
+:not(.calc).current {
+  font-style: italic;
+}
+
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
+  font-family: monospace;
+}
