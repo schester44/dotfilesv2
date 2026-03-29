@@ -3,12 +3,18 @@ set -euo pipefail
 
 COMMANDS_DIR="$(dirname "$(realpath "$0")")/sc-commands"
 
-if [[ $# -lt 2 ]]; then
-  echo "Usage: sc <module> <action> [args...]"
+if [[ $# -lt 1 ]]; then
+  echo "Usage: sc <command> [args...]"
+  echo "       sc <module> <action> [args...]"
   echo
-  # List available modules and actions
   if [[ -d "$COMMANDS_DIR" ]]; then
+    # List standalone commands
+    for cmd_file in "$COMMANDS_DIR"/*; do
+      [[ -x "$cmd_file" && -f "$cmd_file" ]] && echo "  sc $(basename "$cmd_file") ..."
+    done
+    # List module/action commands
     for module_dir in "$COMMANDS_DIR"/*/; do
+      [[ -d "$module_dir" ]] || continue
       module="$(basename "$module_dir")"
       actions=()
       for action_file in "$module_dir"/*; do
@@ -19,6 +25,19 @@ if [[ $# -lt 2 ]]; then
       fi
     done
   fi
+  exit 1
+fi
+
+# Try standalone command first
+cmd="$COMMANDS_DIR/$1"
+if [[ -x "$cmd" && -f "$cmd" ]]; then
+  shift
+  exec "$cmd" "$@"
+fi
+
+# Then try module/action
+if [[ $# -lt 2 ]]; then
+  echo "Error: unknown command 'sc $1'"
   exit 1
 fi
 

@@ -1,18 +1,14 @@
 local tools = require 'lib.tools'
 
 local get_theme = function()
-  -- Try grapelean first, fall back to cobalt44
-  local ok, palette = pcall(require, 'grapelean.palette')
-  if not ok then
-    palette = require 'cobalt44.palette'
-  end
+  local palette = require 'grapelean.palette'
 
   local colors = {
-    fg_bright = palette.lighter_grey,
-    fg_dim = palette.dim_blue,
+    fg_bright = palette.gray_light,
+    fg_dim = palette.bg_muted,
     red = palette.red,
-    violet = palette.light_pink,
-    bg = palette.cobalt_bg,
+    violet = palette.pink_light,
+    bg = palette.bg,
     yellow = palette.yellow,
   }
 

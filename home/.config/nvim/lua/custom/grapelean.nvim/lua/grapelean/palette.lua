@@ -1,5 +1,6 @@
 -- Grapelean color palette
--- Loads from ~/.dotfiles/colors/grapelean.json (single source of truth)
+-- Loads from ~/.dotfiles/system/theme.json (symlink to active palette)
+-- Swap palettes with: theme-swap <name>
 
 local json_path = vim.fn.expand '~/.dotfiles/system/theme.json'
 

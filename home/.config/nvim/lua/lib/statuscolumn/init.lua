@@ -5,19 +5,19 @@ local ui = require 'lib.ui'
 
 local statuscolumn = {}
 
-local ok, theme_palette = pcall(require, 'grapelean.palette'); if not ok then theme_palette = require 'cobalt44.palette' end
+local theme_palette = require 'grapelean.palette'
 
 local user_config = {
   colors = {
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
-    theme_palette.dim_blue,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
+    theme_palette.bg_muted,
   },
 }
 

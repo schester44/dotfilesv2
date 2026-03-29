@@ -1,0 +1,16 @@
+# Secrets / private keys
+data/
+*.pem
+*.key
+
+# Runtime files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+
+# Nvim plugin lock file (optional — remove this line if you want to pin versions)
+# home/.config/nvim/lazy-lock.json

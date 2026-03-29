@@ -1,21 +1,12 @@
 local plugins = require 'lib/plugins'
 
--- Change this to switch themes: 'cobalt44' or 'grapelean'
-local active_theme = 'grapelean'
+-- Colors loaded from ~/.dotfiles/system/theme.json (symlink to active palette)
+-- Swap palettes with: theme-swap <name> (e.g. theme-swap cobalt44, theme-swap grapelean)
 
 return {
   {
-    dir = plugins.custom_path 'cobalt44.nvim',
-    cond = not vim.g.vscode and active_theme == 'cobalt44',
-    dependencies = { 'tjdevries/colorbuddy.nvim', tag = 'v1.0.0' },
-    priority = 1000,
-    init = function()
-      require('colorbuddy').colorscheme 'cobalt44'
-    end,
-  },
-  {
     dir = plugins.custom_path 'grapelean.nvim',
-    cond = not vim.g.vscode and active_theme == 'grapelean',
+    cond = not vim.g.vscode,
     dependencies = { 'tjdevries/colorbuddy.nvim', tag = 'v1.0.0' },
     priority = 1000,
     init = function()

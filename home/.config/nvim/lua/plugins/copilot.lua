@@ -4,10 +4,10 @@ return {
     event = 'InsertEnter',
     cond = not vim.g.vscode,
     config = function()
-      local ok, palette = pcall(require, 'grapelean.palette'); if not ok then palette = require 'cobalt44.palette' end
+      local palette = require 'grapelean.palette'
 
-      vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = palette.grey, bg = nil })
-      vim.api.nvim_set_hl(0, 'CopilotAnnotation', { fg = palette.grey, bg = nil })
+      vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = palette.gray, bg = nil })
+      vim.api.nvim_set_hl(0, 'CopilotAnnotation', { fg = palette.gray, bg = nil })
 
       require('copilot').setup {
         suggestion = { enabled = true, auto_trigger = true },

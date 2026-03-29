@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# Swap the active color palette
+# Usage: sc theme [palette_name]
+
+COLORS_DIR="$HOME/.dotfiles/system/colors"
+THEME_LINK="$HOME/.dotfiles/system/theme.json"
+
+show_swatch() {
+  local json_file="$1"
+  local name desc accent
+
+  name=$(python3 -c "import json; print(json.load(open('$json_file'))['name'])")
+  desc=$(python3 -c "import json; print(json.load(open('$json_file'))['description'])")
+  accent=$(python3 -c "import json; print(json.load(open('$json_file'))['palette']['purple']['base'])")
+
+  local blocks=()
+  while IFS=' ' read -r hex; do
+    blocks+=("$(gum style --background "$hex" --padding '0 2' '  ')")
+  done < <(python3 -c "
+import json
+with open('$json_file') as f:
+    p = json.load(f)['palette']
+for c in ['bg', 'red', 'pink', 'purple', 'blue', 'green', 'yellow', 'orange']:
+    obj = p[c]
+    print(obj['base'] if isinstance(obj, dict) else obj)
+")
+
+  local swatch
+  swatch=$(gum join "${blocks[@]}")
+
+  echo ""
+  gum style --padding "0 2" --bold --foreground "$accent" "● $name"
+  gum style --padding "0 2" --faint --italic "$desc"
+  echo ""
+  gum style --padding "0 2" "$swatch"
+  echo ""
+}
+
+# No args: list available palettes
+if [[ -z "${1:-}" ]]; then
+  current=$(readlink "$THEME_LINK" 2>/dev/null | sed 's|colors/||;s|\.json$||')
+  for f in "$COLORS_DIR"/*.json; do
+    name=$(basename "$f" .json)
+    show_swatch "$f"
+    if [[ "$name" == "$current" ]]; then
+      gum style --padding "0 4" --faint "active"
+    fi
+  done
+  exit 0
+fi
+
+palette="$1"
+palette_file="$COLORS_DIR/$palette.json"
+
+if [[ ! -f "$palette_file" ]]; then
+  echo "Error: palette '$palette' not found"
+  echo "Available: $(ls "$COLORS_DIR"/*.json 2>/dev/null | xargs -I{} basename {} .json | tr '\n' ' ')"
+  exit 1
+fi
+
+# Update symlink
+ln -sf "colors/$palette.json" "$THEME_LINK"
+
+show_swatch "$palette_file"
+gum style --padding "0 4" --faint "restart nvim to apply"
