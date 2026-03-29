@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Remove the named packages from the system.
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: sc pkg remove <package...>"
+  exit 1
+fi
+
+sudo pacman -Rns --noconfirm "$@"
