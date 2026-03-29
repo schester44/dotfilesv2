@@ -1,0 +1,72 @@
+/* Waybar theme: grapelean
+ * Generated from ~/.dotfiles/system/theme.json */
+
+* {
+  font-family: "JetBrains Mono", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #9E9E9E;
+}
+
+/* Remove all default module backgrounds/borders */
+#bluetooth,
+#pulseaudio,
+#clock {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 14px;
+  margin: 0;
+}
+
+/* Bluetooth */
+#bluetooth {
+  color: #626262;
+  transition: color 200ms ease;
+}
+
+#bluetooth.connected {
+  color: #8fbfdc;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+  color: #444444;
+}
+
+/* Volume */
+#pulseaudio {
+  color: #9E9E9E;
+  transition: color 200ms ease;
+}
+
+#pulseaudio:hover {
+  color: #b8a8e8;
+}
+
+#pulseaudio.muted {
+  color: #444444;
+}
+
+/* Clock */
+#clock {
+  color: #626262;
+  letter-spacing: 0.5px;
+}
+
+/* Tooltip styling */
+tooltip {
+  background: #2e2e32;
+  border: 1px solid #424246;
+  border-radius: 8px;
+  color: #9E9E9E;
+}
+
+tooltip label {
+  padding: 4px 8px;
+}

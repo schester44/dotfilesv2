@@ -1,6 +1,11 @@
 hyprland
 waybar
 
+bluez
+bluez-utils
+bluetui
+hyprpolkitagent
+
 firefox
 git
 github-cli
