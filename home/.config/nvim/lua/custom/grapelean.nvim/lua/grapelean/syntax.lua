@@ -1,0 +1,42 @@
+local colors = require('grapelean.utils').colors
+local styles = require('grapelean.utils').styles
+local Group = require('grapelean.utils').Group
+
+Group.new('Type', colors.purple, nil, nil)
+Group.new('StorageClass', colors.keyword, nil, nil)
+Group.new('Structure', colors.keyword, nil, nil)
+
+-- Comment controls copilot suggestions
+Group.new('Comment', colors.gray_muted, nil, styles.italic)
+
+Group.new('Conditional', colors.keyword, nil, nil)
+Group.new('Constant', colors.white, nil, nil)
+Group.new('Character', colors.green, nil, nil)
+Group.new('Number', colors.purple, nil, nil)
+Group.new('Boolean', colors.purple, nil, nil)
+Group.new('Float', colors.purple, nil, nil)
+Group.new('Function', colors.yellow, nil, nil)
+Group.new('Identifier', colors.white, nil, nil)
+Group.new('Statement', colors.keyword, nil, nil)
+Group.new('Keyword', colors.keyword, nil, nil)
+Group.new('Label', colors.gray, nil, nil)
+Group.new('Operator', colors.gray, nil, styles.NONE)
+Group.new('Exception', colors.keyword, nil, nil)
+Group.new('PreProc', colors.keyword, nil, nil)
+Group.new('Include', colors.keyword, nil, nil)
+Group.new('Define', colors.keyword, nil, nil)
+Group.new('Macro', colors.blue, nil, nil)
+Group.new('Typedef', colors.purple, nil, nil)
+Group.new('PreCondit', colors.keyword, nil, nil)
+Group.new('Repeat', colors.keyword, nil, nil)
+Group.new('String', colors.green, nil, nil)
+Group.new('Special', colors.blue, nil, nil)
+Group.new('SpecialChar', colors.blue, nil, nil)
+Group.new('Tag', colors.blue, nil, nil)
+Group.new('Delimiter', colors.gray, nil, nil)
+Group.new('SpecialComment', colors.keyword, nil, nil)
+Group.new('Debug', colors.gray, nil, styles.italic)
+Group.new('Underlined', colors.blue, nil, styles.underline)
+Group.new('Ignore', colors.gray_muted, nil, styles.italic)
+Group.new('Error', colors.red_muted, nil, nil)
+Group.new('Todo', colors.yellow_light, nil, styles.bold)

@@ -1,0 +1,36 @@
+#!/bin/bash
+set -euo pipefail
+
+COMMANDS_DIR="$(dirname "$(realpath "$0")")/sc-commands"
+
+if [[ $# -lt 2 ]]; then
+  echo "Usage: sc <module> <action> [args...]"
+  echo
+  # List available modules and actions
+  if [[ -d "$COMMANDS_DIR" ]]; then
+    for module_dir in "$COMMANDS_DIR"/*/; do
+      module="$(basename "$module_dir")"
+      actions=()
+      for action_file in "$module_dir"/*; do
+        [[ -x "$action_file" ]] && actions+=("$(basename "$action_file")")
+      done
+      if [[ ${#actions[@]} -gt 0 ]]; then
+        echo "  sc $module {$(IFS='|'; echo "${actions[*]}")}"
+      fi
+    done
+  fi
+  exit 1
+fi
+
+module="$1"
+action="$2"
+shift 2
+
+cmd="$COMMANDS_DIR/$module/$action"
+
+if [[ ! -x "$cmd" ]]; then
+  echo "Error: unknown command 'sc $module $action'"
+  exit 1
+fi
+
+exec "$cmd" "$@"

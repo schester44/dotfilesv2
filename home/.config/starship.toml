@@ -1,0 +1,47 @@
+format = """
+$directory\
+$nodejs\
+$package\
+$git_branch\
+$git_status\
+$docker_context\
+$python\
+$line_break\
+$jobs\
+$character"""
+
+[time]
+disabled = true
+
+[directory]
+truncation_length = 1
+format = '[$path]($style) '
+
+[git_branch]
+format = 'git:([$branch]($style)) '
+style = 'purple'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = 'red'
+
+[nodejs]
+format = '[$symbol($version)]($style) '
+symbol = '⬢ '
+
+[package]
+format = '[$symbol$version]($style) '
+style = 'dimmed white'
+
+[docker_context]
+format = '[🐳 $context]($style) '
+
+[python]
+format = '[$symbol$version]($style) '
+
+[character]
+success_symbol = '[➜](green)'
+error_symbol = '[➜](red)'
+
+[jobs]
+disabled = false

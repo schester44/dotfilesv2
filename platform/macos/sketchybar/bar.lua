@@ -1,0 +1,14 @@
+local colors = require("config.colors")
+local config = require("config.config")
+
+sbar.bar({
+	height = config.dimensions.bar.height,
+	color = colors.transparent,
+	corner_radius = 0,
+	y_offset = 5,
+	padding_right = config.dimensions.bar.x_padding,
+	padding_left = config.dimensions.bar.x_padding,
+	margin = 0,
+	blur_radius = 0,
+	topmost = "window",
+})
