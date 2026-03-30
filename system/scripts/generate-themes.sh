@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-DOTFILES="$HOME/.dotfiles"
+
 THEME_JSON="$DOTFILES/system/theme.json"
 TEMPLATES_DIR="$DOTFILES/system/templates"
 
