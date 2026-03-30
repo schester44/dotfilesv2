@@ -1,0 +1,148 @@
+/* Ironbar theme: grapelean */
+
+* {
+  font-family: "JetBrains Mono", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 0;
+}
+
+.background {
+  background: transparent;
+}
+
+/* Bar container */
+box, button, label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #9E9E9E;
+}
+
+/* Module spacing */
+.end > * {
+  margin: 0 2px;
+  padding: 4px 14px;
+  border-radius: 10px;
+  transition: background 200ms ease;
+}
+
+.end > *:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Clock */
+.clock label {
+  color: #808080;
+  letter-spacing: 0.5px;
+}
+
+/* Volume */
+.volume button {
+  color: #9E9E9E;
+  transition: color 200ms ease;
+}
+
+.volume button:hover {
+  color: #b8a8e8;
+}
+
+.volume.muted button {
+  color: #444444;
+}
+
+/* Bluetooth */
+.label button {
+  color: #626262;
+  transition: color 200ms ease;
+}
+
+.label button:hover {
+  color: #8fbfdc;
+}
+
+/* Separator between modules */
+.end > *:not(:last-child)::after {
+  color: #424246;
+}
+
+/* Clock popup / calendar */
+popover > contents {
+  background: #2e2e32;
+  border: 1px solid #424246;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.popup-clock {
+  background: transparent;
+  border: none;
+  padding: 16px;
+}
+
+.popup-clock * {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.popup-clock label {
+  color: #9E9E9E;
+  padding: 4px 0;
+}
+
+.calendar-clock,
+.calendar {
+  background: transparent;
+  color: #9E9E9E;
+  padding: 8px;
+}
+
+.calendar .day-name {
+  color: #626262;
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+.calendar .day-number {
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.calendar .other-month {
+  color: #424246;
+}
+
+.calendar .today {
+  color: #202024;
+  font-weight: bold;
+  background: #4bdd9c;
+  border-radius: 8px;
+}
+
+.calendar header {
+  padding: 4px 0 8px 0;
+}
+
+.calendar header button {
+  color: #626262;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.calendar header button:hover {
+  color: #9E9E9E;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Tooltip styling */
+tooltip {
+  background: #2e2e32;
+  border: 1px solid #424246;
+  border-radius: 10px;
+  color: #9E9E9E;
+}
+
+tooltip label {
+  padding: 6px 12px;
+}

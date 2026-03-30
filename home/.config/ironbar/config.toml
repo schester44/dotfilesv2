@@ -1,0 +1,27 @@
+position = "top"
+anchor_to_edges = true
+height = 32
+margin.top = 6
+margin.left = 20
+margin.right = 20
+
+[[end]]
+type = "volume"
+format = "{icon}  {percentage}%"
+max_volume = 100
+icons.volume_high = "󰕾"
+icons.volume_medium = "󰖀"
+icons.volume_low = "󰕿"
+icons.muted = "󰖁"
+on_click_left = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+on_scroll_up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+on_scroll_down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+
+[[end]]
+type = "label"
+label = ""
+on_click_left = "bluetui"
+
+[[end]]
+type = "clock"
+format = "%a %b %d   %H:%M"

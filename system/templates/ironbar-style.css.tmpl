@@ -1,0 +1,148 @@
+/* Ironbar theme: {{name}} */
+
+* {
+  font-family: "JetBrains Mono", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 0;
+}
+
+.background {
+  background: transparent;
+}
+
+/* Bar container */
+box, button, label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: {{palette.gray.light}};
+}
+
+/* Module spacing */
+.end > * {
+  margin: 0 2px;
+  padding: 4px 14px;
+  border-radius: 10px;
+  transition: background 200ms ease;
+}
+
+.end > *:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Clock */
+.clock label {
+  color: {{palette.gray.base}};
+  letter-spacing: 0.5px;
+}
+
+/* Volume */
+.volume button {
+  color: {{palette.gray.light}};
+  transition: color 200ms ease;
+}
+
+.volume button:hover {
+  color: {{palette.purple.light}};
+}
+
+.volume.muted button {
+  color: {{palette.gray.dark}};
+}
+
+/* Bluetooth */
+.label button {
+  color: {{palette.gray.muted}};
+  transition: color 200ms ease;
+}
+
+.label button:hover {
+  color: {{palette.blue.base}};
+}
+
+/* Separator between modules */
+.end > *:not(:last-child)::after {
+  color: {{palette.bg.lighter}};
+}
+
+/* Clock popup / calendar */
+popover > contents {
+  background: {{palette.bg.light}};
+  border: 1px solid {{palette.bg.lighter}};
+  border-radius: 12px;
+  padding: 0;
+}
+
+.popup-clock {
+  background: transparent;
+  border: none;
+  padding: 16px;
+}
+
+.popup-clock * {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.popup-clock label {
+  color: {{palette.gray.light}};
+  padding: 4px 0;
+}
+
+.calendar-clock,
+.calendar {
+  background: transparent;
+  color: {{palette.gray.light}};
+  padding: 8px;
+}
+
+.calendar .day-name {
+  color: {{palette.gray.muted}};
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+.calendar .day-number {
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.calendar .other-month {
+  color: {{palette.bg.lighter}};
+}
+
+.calendar .today {
+  color: {{palette.bg.base}};
+  font-weight: bold;
+  background: {{palette.green.glow}};
+  border-radius: 8px;
+}
+
+.calendar header {
+  padding: 4px 0 8px 0;
+}
+
+.calendar header button {
+  color: {{palette.gray.muted}};
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.calendar header button:hover {
+  color: {{palette.gray.light}};
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Tooltip styling */
+tooltip {
+  background: {{palette.bg.light}};
+  border: 1px solid {{palette.bg.lighter}};
+  border-radius: 10px;
+  color: {{palette.gray.light}};
+}
+
+tooltip label {
+  padding: 6px 12px;
+}

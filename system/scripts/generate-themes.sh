@@ -18,14 +18,14 @@ TEMPLATES_DIR="$DOTFILES/system/templates"
 # Map: template filename -> output path
 declare -A DEST_MAP=(
   ["walker-style.css.tmpl"]="$DOTFILES/home/.config/walker/themes/dotfiles/style.css"
-  ["waybar-style.css.tmpl"]="$DOTFILES/home/.config/waybar/style.css"
+  ["ironbar-style.css.tmpl"]="$DOTFILES/home/.config/ironbar/style.css"
   # ["obsidian.css.tmpl"]="$HOME/.config/obsidian/snippets/theme.css"
 )
 
 # Reload commands to run after generation (optional, per app)
 declare -A RELOAD_MAP=(
   ["walker-style.css.tmpl"]="killall walker 2>/dev/null; sleep 1; nohup walker --gapplication-service >/dev/null 2>&1 &"
-  ["waybar-style.css.tmpl"]="killall -SIGUSR2 waybar 2>/dev/null || true"
+  ["ironbar-style.css.tmpl"]="killall ironbar 2>/dev/null; sleep 1; nohup ironbar >/dev/null 2>&1 &"
 )
 
 if [[ ! -f "$THEME_JSON" ]]; then

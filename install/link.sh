@@ -24,8 +24,8 @@ ln -sf "$CONFIG_SOURCE/starship.toml" "$CONFIG_DEST/starship.toml"
 # Lazygit
 ln -sf "$CONFIG_SOURCE/lazygit" "$CONFIG_DEST/lazygit"
 
-# Waybar
-ln -sf "$CONFIG_SOURCE/waybar" "$CONFIG_DEST/waybar"
+# Ironbar
+ln -sf "$CONFIG_SOURCE/ironbar" "$CONFIG_DEST/ironbar"
 
 
 # Pi (LLM agent)
