@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if pgrep -x ironbar &>/dev/null; then
+  pkill -x ironbar
+else
+  hyprctl dispatch exec "systemd-run --user --no-block ironbar"
+fi

@@ -1,0 +1,8 @@
+name = "quickmenu_system"
+name_pretty = "System"
+icon = "system-shutdown"
+
+[[entries]]
+text = "Restart"
+icon = "system-reboot"
+actions = { "restart" = "systemctl reboot" }

@@ -1,0 +1,8 @@
+name = "quickmenu_toggle"
+name_pretty = "Toggle"
+icon = "preferences-system"
+
+[[entries]]
+text = "Ironbar"
+icon = "cs-panels"
+actions = { "toggle" = "$HOME/.dotfiles/bin/sc-commands/toggle/ironbar" }

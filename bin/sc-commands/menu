@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+
+COMMANDS_DIR="$HOME/.dotfiles/bin/sc-commands"
+
+menu() {
+  local prompt="$1"
+  local options="$2"
+  echo -e "$options" | walker --dmenu -p "$prompt…" 2>/dev/null
+}
+
+run() {
+  case "$1" in
+  *"Toggle > Ironbar"*)    "$COMMANDS_DIR/toggle/ironbar" ;;
+  *"Config > Open Dotfiles"*) wezterm start --cwd "$HOME/.dotfiles" -- nvim ;;
+  *"System > Restart"*)    systemctl reboot ;;
+  *) exit 0 ;;
+  esac
+}
+
+ITEMS="󰍜  Toggle > Ironbar
+  Config > Open Dotfiles
+󰜉  System > Restart"
+
+run "$(menu "Menu" "$ITEMS")"

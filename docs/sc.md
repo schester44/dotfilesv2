@@ -35,6 +35,30 @@ sc pkg remove <pkg>   # remove a package
 sc pkg rm <pkg>       # alias for remove
 ```
 
+### `sc toggle`
+
+Toggle services on/off.
+
+```bash
+sc toggle ironbar     # show/hide the status bar
+```
+
+### `sc launch`
+
+Launch helpers.
+
+```bash
+sc launch webapp <url>  # open a URL in Firefox, focusing it if already running
+```
+
+### `sc terminal`
+
+Terminal helpers.
+
+```bash
+sc terminal cwd       # print the CWD of the active terminal's shell
+```
+
 ### `sc show`
 
 Display helpers.
@@ -42,6 +66,12 @@ Display helpers.
 ```bash
 sc show done          # show a "Done!" spinner, wait for keypress
 ```
+
+### `sc menu`
+
+The Crust Menu — a searchable hierarchical launcher. See [menu.md](menu.md).
+
+Note: the menu is typically opened via keybind (`ALT_R + M`) which calls Walker directly, but `sc menu` also works as a standalone fallback.
 
 ## Adding commands
 
@@ -81,13 +111,20 @@ sc mymodule status
 ~/.dotfiles/bin/
 ├── sc                      # dispatcher
 └── sc-commands/
+    ├── menu                # sc menu (fallback)
     ├── theme               # sc theme
     ├── show/
     │   └── done            # sc show done
-    └── pkg/
-        ├── install         # sc pkg install
-        ├── add             # sc pkg add
-        ├── missing         # sc pkg missing
-        ├── remove          # sc pkg remove
-        └── rm              # sc pkg rm
+    ├── pkg/
+    │   ├── install         # sc pkg install
+    │   ├── add             # sc pkg add
+    │   ├── missing         # sc pkg missing
+    │   ├── remove          # sc pkg remove
+    │   └── rm              # sc pkg rm
+    ├── toggle/
+    │   └── ironbar         # sc toggle ironbar
+    ├── launch/
+    │   └── webapp          # sc launch webapp <url>
+    └── terminal/
+        └── cwd             # sc terminal cwd
 ```

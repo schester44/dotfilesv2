@@ -1,0 +1,8 @@
+name = "quickmenu_config"
+name_pretty = "Config"
+icon = "preferences-desktop"
+
+[[entries]]
+text = "Open Dotfiles"
+icon = "folder-open"
+actions = { "open" = "wezterm start --cwd $HOME/.dotfiles -- nvim" }

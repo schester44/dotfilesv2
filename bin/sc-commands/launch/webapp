@@ -1,0 +1,23 @@
+#!/bin/bash
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: sc launch webapp <url>"
+  echo "Opens the given URL in Firefox."
+  exit 1
+fi
+
+url="$1"
+
+# Prepend https:// if no protocol is specified
+if [[ "$url" != *://* ]]; then
+  url="https://$url"
+fi
+
+# Focus Firefox if it's already running, then open the URL in a new tab
+if hyprctl clients -j | jq -e '.[] | select(.class == "firefox")' &>/dev/null; then
+  hyprctl dispatch focuswindow class:firefox
+  firefox "$url"
+else
+  exec firefox "$url"
+fi

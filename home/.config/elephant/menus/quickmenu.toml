@@ -1,0 +1,18 @@
+name = "quickmenu"
+name_pretty = "Quick Menu"
+icon = "applications-other"
+
+[[entries]]
+text = "Toggle"
+icon = "preferences-system"
+submenu = "quickmenu_toggle"
+
+[[entries]]
+text = "Config"
+icon = "preferences-desktop"
+submenu = "quickmenu_config"
+
+[[entries]]
+text = "System"
+icon = "system-shutdown"
+submenu = "quickmenu_system"
