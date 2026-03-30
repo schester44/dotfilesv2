@@ -7,6 +7,7 @@ bluetui
 hyprpolkitagent
 
 firefox
+obsidian
 git
 github-cli
 lazygit
@@ -23,6 +24,7 @@ xdg-desktop-portal-hyprland
 wl-clipboard
 cliphist
 ripgrep
+tmux
 fzf
 eza
 zoxide
