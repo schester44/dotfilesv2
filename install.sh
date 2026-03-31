@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-export DOTFILES="$HOME/.dotfiles"
+export DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 export PATH="$DOTFILES/bin:$PATH"
 

@@ -1,5 +1,13 @@
 export TERM="xterm-256color"
-export DOTFILES="$HOME/.dotfiles"
+# Resolve DOTFILES from this symlinked .zshrc back to the repo root
+# .zshrc lives at <repo>/home/.zshrc, so go up two levels
+_zshrc="${(%):-%x}"
+if [[ -L "$_zshrc" ]]; then
+  # macOS readlink doesn't support -f; use a POSIX-friendly resolution
+  _zshrc="$(cd "$(dirname "$_zshrc")" && cd "$(dirname "$(readlink "$_zshrc")")" && pwd)/$(basename "$(readlink "$HOME/.zshrc")")"
+fi
+export DOTFILES="$(cd "$(dirname "$(dirname "$_zshrc")")" && pwd)"
+unset _zshrc
 export VISUAL="nvim"
 export EDITOR="nvim"
 

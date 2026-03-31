@@ -8,6 +8,7 @@ CONFIG_DEST="$HOME/.config"
 
 mkdir -p "$CONFIG_DEST"
 
+ln -sf "$HOME_SOURCE/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$HOME_SOURCE/.zshrc" "$HOME/.zshrc"
 ln -sf "$CONFIG_SOURCE/nvim" "$CONFIG_DEST/nvim"
 ln -sf "$CONFIG_SOURCE/hypr" "$CONFIG_DEST/hypr"
