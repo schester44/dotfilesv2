@@ -1,9 +1,15 @@
 position = "top"
 anchor_to_edges = true
 height = 32
+popup_autohide = true
 margin.top = 6
 margin.left = 20
 margin.right = 20
+
+[[start]]
+type = "workspaces"
+all_monitors = false
+name_map = { 1 = "1", 2 = "2", 3 = "3", 4 = "4", 5 = "5", 6 = "6", 7 = "7", 8 = "8", 9 = "9", 10 = "10" }
 
 [[end]]
 type = "volume"
@@ -14,6 +20,7 @@ icons.volume_medium = "󰖀"
 icons.volume_low = "󰕿"
 icons.muted = "󰖁"
 on_click_left = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+on_click_right = "wezterm start --class wiremix-float -- wiremix -v output"
 on_scroll_up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
 on_scroll_down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
 

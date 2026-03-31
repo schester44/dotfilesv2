@@ -31,6 +31,33 @@ box, button, label {
   background: rgba(255, 255, 255, 0.04);
 }
 
+/* Workspaces */
+.workspaces {
+  padding: 0 4px;
+}
+
+.workspaces .item {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0px 6px;
+  margin: 0 2px;
+  border-radius: 8px;
+  color: #626262;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+.workspaces .item:hover {
+  color: #9E9E9E;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.workspaces .item.focused {
+  color: #9E9E9E;
+  background: #2a2a2a;
+}
+
 /* Clock */
 .clock label {
   color: #808080;

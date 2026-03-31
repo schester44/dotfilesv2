@@ -10,7 +10,8 @@ My Arch Linux dotfiles — Hyprland, Neovim, WezTerm, and more.
 - **Editor** — [Neovim](https://neovim.io/) with lazy.nvim, custom themes, LSP, and more
 - **Terminal** — [WezTerm](https://wezfurlong.org/wezterm/)
 - **Shell** — Zsh with aliases, zoxide, eza, and git worktree management (`wt`)
-- **Bar** — [Waybar](https://github.com/Alexays/Waybar)
+- **Bar** — [Ironbar](https://github.com/JakeStanger/ironbar)
+- **Audio** — [WireMix](https://github.com/tux3/wiremix) (PipeWire TUI mixer)
 - **Launcher** — [Walker](https://github.com/abenz1267/walker)
 - **Fonts** — Operator Mono Lig, JetBrains Mono Nerd Font
 
@@ -25,11 +26,12 @@ My Arch Linux dotfiles — Hyprland, Neovim, WezTerm, and more.
 │   ├── .config/
 │   │   ├── hypr/           # Hyprland config
 │   │   ├── nvim/           # Neovim config
+│   │   ├── ironbar/         # Ironbar status bar config
 │   │   ├── wezterm/        # WezTerm config
 │   │   └── zsh/            # Zsh aliases & functions
 │   └── .zshrc
 ├── system/
-│   ├── packages/           # pacman.txt, npm.txt
+│   ├── packages/           # pacman.txt, aur.txt, npm.txt
 │   └── fonts/              # fonts.zip
 ├── scripts/                # Utility scripts
 └── images/                 # Screenshots
@@ -54,11 +56,12 @@ The installer will:
 
 | Category | Packages |
 |----------|----------|
-| Desktop | hyprland, waybar, xdg-desktop-portal-hyprland |
+| Desktop | hyprland, ironbar, xdg-desktop-portal-hyprland |
 | Apps | firefox, neovim, wezterm |
 | Dev | git, github-cli, lazygit, nodejs, npm, base-devel |
 | CLI | ripgrep, fzf, eza, zoxide |
 | Fonts | ttf-jetbrains-mono, ttf-jetbrains-mono-nerd, Operator Mono Lig |
+| Audio | wiremix, wireplumber, pipewire |
 | Other | vaultwarden, zsh, wl-clipboard, cliphist |
 
 ## Custom commands
@@ -81,6 +84,32 @@ A template-based system that generates app configs (Walker, Waybar, etc.) from a
 sc theme              # list palettes with swatches
 sc theme cobalt44     # switch — all configs regenerate
 ```
+
+## Hyprland keybindings
+
+| Keybind | Action |
+|---------|--------|
+| `SUPER + H/J/K/L` | Move focus left/down/up/right |
+| `SUPER + SHIFT + H/J/K/L` | Move window left/down/up/right |
+| `SUPER + SHIFT + /` | Toggle split (dwindle) |
+| `SUPER + 1-0` | Switch workspace |
+| `SUPER + SHIFT + 1-0` | Move window to workspace |
+| `SUPER + Q` | Kill active window |
+| `SUPER + SHIFT + F` | Toggle floating |
+| `ALT_R + T` | New terminal |
+| `ALT_R + B` | Browser |
+| `ALT_R + SPACE` | Clipboard (Walker) |
+| `ALT_R + V` | WireMix audio mixer (floating) |
+| `ALT + SPACE` | App launcher |
+
+## Ironbar
+
+Status bar config lives at `home/.config/ironbar/`.
+
+- **Volume widget** — shows current volume with scroll to adjust, left-click to mute
+- **Right-click volume** — opens WireMix (PipeWire TUI mixer) in a floating WezTerm window
+- **Bluetooth** — opens bluetui on click
+- **Clock** — date and time
 
 ## Git worktree management
 

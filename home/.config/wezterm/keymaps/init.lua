@@ -8,6 +8,9 @@ function M.apply(config)
 
 	local resize_mode = require("keymaps.resize")
 
+	-- Use ALT on Linux, CMD on macOS
+	local os_mod = wezterm.target_triple:find("linux") and "ALT" or "CMD"
+
 	config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 3000 }
 
 	resize_mode.apply(config, "resize_pane")
@@ -54,7 +57,7 @@ function M.apply(config)
 
 		{
 			key = "k",
-			mods = "CMD",
+			mods = os_mod,
 			action = act.ShowLauncherArgs({
 				flags = "FUZZY|WORKSPACES",
 			}),
@@ -110,7 +113,7 @@ function M.apply(config)
 		-- close current pane with cmd+q
 		{
 			key = "q",
-			mods = "CMD",
+			mods = os_mod,
 			action = wezterm.action.CloseCurrentPane({ confirm = true }),
 		},
 		-- close current tab with leader+q
@@ -122,7 +125,7 @@ function M.apply(config)
 		-- prevent closing with cmd+w
 		{
 			key = "w",
-			mods = "CMD",
+			mods = os_mod,
 			action = wezterm.action.Nop,
 		},
 		-- rename workspace
@@ -177,7 +180,7 @@ function M.apply(config)
 		-- CTRL+CMD + number to move tab to that position
 		table.insert(config.keys, {
 			key = tostring(i),
-			mods = "CTRL|CMD",
+			mods = "CTRL|" .. os_mod,
 			action = wezterm.action.MoveTab(i - 1),
 		})
 	end

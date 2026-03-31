@@ -3,6 +3,11 @@ name_pretty = "System"
 icon = "system-shutdown"
 
 [[entries]]
+text = "Exit Hyprland"
+icon = "system-log-out"
+actions = { "exit" = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit" }
+
+[[entries]]
 text = "Restart"
 icon = "system-reboot"
 actions = { "restart" = "systemctl reboot" }

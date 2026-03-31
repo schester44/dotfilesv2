@@ -5,6 +5,7 @@ bluez
 bluez-utils
 bluetui
 hyprpolkitagent
+keyd
 
 firefox
 obsidian
@@ -39,3 +40,4 @@ vaultwarden
 
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
+wiremix
