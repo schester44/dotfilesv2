@@ -41,3 +41,4 @@ vaultwarden
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 wiremix
+impala
