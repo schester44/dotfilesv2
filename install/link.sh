@@ -28,6 +28,10 @@ ln -sf "$CONFIG_SOURCE/lazygit" "$CONFIG_DEST/lazygit"
 # Ironbar
 ln -sf "$CONFIG_SOURCE/ironbar" "$CONFIG_DEST/ironbar"
 
+# Btop
+mkdir -p "$CONFIG_DEST/btop"
+ln -sf "$CONFIG_SOURCE/btop/btop.conf" "$CONFIG_DEST/btop/btop.conf"
+
 
 # Pi (LLM agent)
 mkdir -p "$HOME/.pi/agent"
